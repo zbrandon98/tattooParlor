@@ -10,7 +10,7 @@ import {
     Group,
     Button,
   } from '@mantine/core';
-  import classes from './Signup.module.css';
+  import classes from './Login.module.css';
   
   export default function Login() {
     return (
