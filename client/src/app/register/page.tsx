@@ -30,11 +30,10 @@ export default function Register() {
 
   async function onSubmitForm(form: RegistrationForm) {
     const body = JSON.stringify(form);
-    console.log('Initial log' + body);
-    const response = await fetch('http://localhost:3000/register/api', {
+    const response = await fetch('http://localhost:3000/api/register', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(form)
+      body: JSON.stringify(body)
     })
 
     if (response.status === 201) {
