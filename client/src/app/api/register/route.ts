@@ -4,10 +4,6 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-    const data = await request.json()
-    console.log('This is from server: ' + data.username)
-
-    return new NextResponse(JSON.stringify(data.username), {
-        status: 201,
-      });
+    const {username, email, password} = await request.json();
+    return NextResponse.json({username, email, password}, {status: 201});
 }

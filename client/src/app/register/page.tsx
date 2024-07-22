@@ -2,14 +2,9 @@
 import { useForm } from '@mantine/form'
 import { Button, PasswordInput, TextInput } from '@mantine/core';
 import classes from './Register.module.css';
-import { FormEvent } from 'react';
+import RegistrationForm from '@/types/registrationForm';
+import submitRegistrationForm from '@/lib/submitRegistrationForm';
 
-interface RegistrationForm {
-  username: string,
-  email: string,
-  password: string,
-  confirmPassword: string
-}
 export default function Register() {
 
   const form = useForm<RegistrationForm>({
@@ -28,25 +23,9 @@ export default function Register() {
     }
   })
 
-  async function onSubmitForm(form: RegistrationForm) {
-    const body = JSON.stringify(form);
-    const response = await fetch('http://localhost:3000/api/register', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(body)
-    })
-
-    if (response.status === 201) {
-      const data = await response.json()
-      console.log('Successful status return' + data);
-    } else {
-      console.log('no bueno');
-    }
-
-  }
   return(
     <div className={classes.registerContainer}>
-      <form onSubmit={form.onSubmit(onSubmitForm)}>
+      <form onSubmit={form.onSubmit(submitRegistrationForm)}>
         <TextInput
           withAsterisk
           label='username'
