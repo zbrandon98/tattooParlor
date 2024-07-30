@@ -5,8 +5,7 @@ import classes from './Register.module.css';
 import RegistrationForm from '@/types/registrationForm';
 import submitRegistrationForm from '@/lib/submitRegistrationForm';
 
-export default function Register() {
-
+export default function RegisterPage() {
   const form = useForm<RegistrationForm>({
     mode: 'uncontrolled',
     initialValues: {
