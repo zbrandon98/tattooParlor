@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client';
 
 import createRegistrationResponse from '@/lib/createRegistrationResponse';
 import hashPassword from '@/lib/hashPassword';
+
 const db = new PrismaClient();
 
 export async function GET() {

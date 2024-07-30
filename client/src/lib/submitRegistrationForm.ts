@@ -9,7 +9,7 @@ export default async function submitRegistrationForm(form: RegistrationForm) {
     })
 
     if (!response.ok) {
-      console.log('Error. Response was not between 200-299');
+      console.log('Error. Registration Response was not between 200-299');
       const errorResponse = await response.json();
       console.log(`Error details: ${JSON.stringify(errorResponse)}`);
       return;
