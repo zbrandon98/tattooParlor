@@ -17,7 +17,8 @@ export default function RegisterPage() {
 
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
-      username: (username) => (username.length < 6 ? 'Username must be more than 5 characters': null),
+      username: (username) => (username.length < 6 ? 'Username must be more than 5 characters' : null),
+      password: (password) => (password.length < 6 ? 'Password must be more than 5 characters' : null),
       confirmPassword: (value, values) => (value !== values.password ? 'Passwords did not match' : null),
     }
   })
